@@ -3,7 +3,7 @@ self.addEventListener('install', function(event) {
     caches.open('date-app').then(function(cache) {
       return cache.addAll([
         './',
-        './index_v5.html',
+        './index.html',
         './cards.js',
         './script.js',
         './style.css'
