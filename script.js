@@ -61,6 +61,8 @@ function startGame() {
     updateTurn();
     updateScore();
     updateCardIndex();
+    updateCardsRemaining();
+    $('cardsRemaining').style.display = 'block';
     drawCard();
     $('drawBtn').disabled = true;
   }, 800);
@@ -93,6 +95,8 @@ function drawCard() {
   scores[turn] += card.level || 1;
   updateScore();
   updateCardIndex();
+  updateCardsRemaining();
+  $('cardsRemaining').style.display = 'block';
 
   const cardArea = $('cardArea');
   cardArea.className = 'card-lvl-' + (card.level || 1);
@@ -226,4 +230,11 @@ function updateCardIndex() {
     div.textContent = card.text;
     container.appendChild(div);
   });
+}
+
+function updateCardsRemaining() {
+  const el = $('cardsRemaining');
+  if (el) {
+    el.innerText = `קלפים נשארו: ${cardsToPlay.length}`;
+  }
 }

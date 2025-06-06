@@ -1,14 +1,17 @@
-body {
-  @font-face {
+@font-face {
   font-family: 'Alef';
   src: url('Alef-Regular.ttf') format('truetype');
   font-weight: normal;
+  font-style: normal;
 }
+
 @font-face {
   font-family: 'Alef';
   src: url('Alef-Bold.ttf') format('truetype');
   font-weight: bold;
+  font-style: normal;
 }
+body {
   font-family: 'Alef', Arial, sans-serif;
   text-align: center;
   direction: rtl;
@@ -18,7 +21,7 @@ body {
 
 input, button {
   margin: 8px;
-  padding: 10px 20px;
+  padding: 12px 24px;
   font-size: 16px;
   border-radius: 8px;
   border: 1px solid #888;
@@ -86,9 +89,12 @@ button[data-mood="sexual"]   { background: #ff9aa2; }
   font-weight: 500;
   color: #000;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  white-space: normal;
+  word-break: break-word;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
   animation: fadeIn 0.5s ease-in-out;
@@ -127,53 +133,44 @@ button[data-mood="sexual"]   { background: #ff9aa2; }
   to   { opacity: 1; transform: scale(1); }
 }
 
-/* מובייל */@media (max-width: 480px) {
-  input, button {
-    font-size: 18px;
-    padding: 14px 24px;
-  }
-
-  #moodButtons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  #moodButtons button {
-    width: 80%;
-    margin: 6px auto;
-  }
-
-  #cardArea {
-    font-size: 20px;
-    width: 90%;
-    padding: 16px;
-  }
-
-  #actions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
+/* מובייל */
+@media (max-width: 480px) {
+  #cardArea { font-size: 18px; width: 90%; }
   #actions button {
     display: block;
     width: 90%;
     margin: 6px auto;
   }
+  #cardsRemaining {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
 
-  #turnDisplay, #scoreBoard {
+  #drawBtn, #skipBtn, #completeBtn {
     font-size: 18px;
+    padding: 14px 28px;
   }
+}
 
-  .card-text {
-    font-size: 20px;
-  }
+.card-text {
+  margin-bottom: 10px;
+  font-size: 22px;
+  line-height: 1.5;
+}
 
-  #showIndexBtn {
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 10px;
-    top: auto;
-  }
+.card-level-icon {
+  font-size: 16px;
+  color: #555;
+}
+
+/* סופר קלפים */
+#cardsRemaining {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+  display: block;
+}
+
+#skipBtn {
+  margin-right: 10px;
 }
