@@ -1,0 +1,128 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  direction: rtl;
+  background: #f5f5ff;
+  margin: 0;
+}
+
+input, button {
+  margin: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #888;
+}
+
+button:hover {
+  cursor: pointer;
+  filter: brightness(1.08);
+  transition: .2s;
+}
+
+/* כפתורי מצב-רוח */
+#moodButtons button {
+  border: none;
+  color: #000;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  margin: 5px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+button[data-mood="romantic"] { background: #ffc8dd; }
+button[data-mood="fun"]      { background: #fff4a3; }
+button[data-mood="all"]      { background: #d7bdf5; }
+button[data-mood="sexual"]   { background: #ff9aa2; }
+#moodButtons button.selected {
+  outline: 3px solid #222;
+  transform: scale(1.05);
+}
+
+/* תצוגה כללית */
+#turnDisplay {
+  font-size: 20px;
+  margin: 12px 0;
+}
+#turnDisplay b {
+  background: linear-gradient(to right, #dff9fb, #c7ecee);
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+#scoreBoard {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  background: #ffffff;
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  border: 1px solid #ccc;
+}
+
+/* קלף */
+#cardArea {
+  margin: 20px auto;
+  width: 70%;
+  min-height: 80px;
+  padding: 20px;
+  border: 3px dashed #aaa;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+  font-size: 24px;
+  font-weight: 500;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* רמות קלפים */
+.card-lvl-1 {
+  background-color: #f8f9fa;
+  border-color: #adb5bd;
+  color: #343a40;
+}
+.card-lvl-2 {
+  background-color: #e0f7fa;
+  border-color: #00acc1;
+  color: #004d40;
+}
+.card-lvl-3 {
+  background-color: #e3f2fd;
+  border-color: #42a5f5;
+  color: #0d47a1;
+}
+.card-lvl-4 {
+  background-color: #fff3e0;
+  border-color: #fb8c00;
+  color: #e65100;
+}
+.card-lvl-5 {
+  background-color: #ffebee;
+  border-color: #e53935;
+  color: #b71c1c;
+}
+
+/* אנימציה */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* מובייל */
+@media (max-width: 480px) {
+  #cardArea { font-size: 18px; width: 90%; }
+  #actions button {
+    display: block;
+    width: 90%;
+    margin: 6px auto;
+  }
+}
