@@ -2,8 +2,11 @@
 <html lang="he">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>🎲 Game and Beyond</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icon-192.png">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
     body {
@@ -82,6 +85,28 @@
       font-weight: bold;
       cursor: pointer;
     }
+    #startScreen {
+      background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    #startScreen h1 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+      color: #222;
+    }
+    #startScreen input,
+    #startScreen button,
+    #moodButtons button {
+      margin: 8px;
+      padding: 10px 16px;
+      font-size: 1em;
+      border-radius: 8px;
+    }
   </style>
 </head>
 <body>
@@ -147,9 +172,13 @@
 <script src="cards.js" defer></script>
 <script src="script.js" defer></script>
 <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
+
   function enterGame() {
     document.getElementById('landingScreen').style.display = 'none';
-    document.getElementById('startScreen').style.display = 'block';
+    document.getElementById('startScreen').style.display = 'flex';
   }
 
   function toggleCardIndex() {
