@@ -131,11 +131,11 @@ function skipCard() {
   updateScore();
   switchTurn();
 }
+
 function switchTurn() {
   turn = 1 - turn;
   updateTurn();
   resetCardArea();
-  updateCardsRemaining(); // ← הוסף כאן
   $('drawBtn').disabled = false;
   if (!cardsToPlay.length) endGame();
 }
@@ -234,7 +234,6 @@ function updateCardIndex() {
 
 function updateCardsRemaining() {
   const el = $('cardsRemaining');
-  console.log('כמות קלפים שנותרו:', cardsToPlay.length);
   if (el) {
     el.innerText = `קלפים נשארו: ${cardsToPlay.length}`;
   }

@@ -143,8 +143,7 @@ button[data-mood="sexual"]   { background: #ff9aa2; }
   }
   #cardsRemaining {
     font-size: 16px;
-    margin-bottom: 16px;
-    text-align: center;
+    margin-bottom: 10px;
   }
 
   #drawBtn, #skipBtn, #completeBtn {
@@ -170,7 +169,6 @@ button[data-mood="sexual"]   { background: #ff9aa2; }
   color: #666;
   margin-top: 4px;
   display: block;
-  text-align: center;
 }
 
 #skipBtn {
