@@ -116,7 +116,7 @@
   <h1>דייט לא שגרתי 🎉</h1>
   <p>ערב של קלפים, שיחה, גירוי וצחוק שלא יישאר אתכם אדישים.<br>בחרו את מצב הרוח שלכם – והמשחק מתחיל! 🔥</p>
   <button class="menu-btn" onclick="enterGame()">🎙 נכנסים להריון – משחק פתוח</button>
-  <button class="menu-btn locked">🔒 מי מכיר את מי – בקרוב 🧠</button>
+  <button class="menu-btn" onclick="launchWhoKnows()">🧠 מי מכיר את מי</button>
   <button class="menu-btn locked">🔒 קלפי שתייה לוהטים – בקרוב 🍸</button>
   <button class="menu-btn locked">🔒 אמת, חובה ותשוקה – בקרוב 🍪</button>
 </div>
@@ -170,6 +170,18 @@
   <button onclick="location.reload()">🔁 משחק חדש</button>
 </div>
 
+<!-- אזור משחק "מי מכיר את מי" -->
+<div id="whoKnowsScreen" style="display: none">
+  <h2>🧠 מי מכיר את מי</h2>
+  <div id="questionArea"></div>
+  <div id="answerButtons">
+    <button onclick="answerQuestion(1)">שחקן 1 צדק</button>
+    <button onclick="answerQuestion(2)">שחקן 2 צדק</button>
+    <button onclick="nextQuestion()">דלג</button>
+  </div>
+  <div id="whoKnowsScore"></div>
+</div>
+
 <script src="cards.js" defer></script>
 <script src="script.js" defer></script>
 <script>
@@ -201,4 +213,63 @@
 </script>
 
 </body>
+
+
+<!-- אזור משחק "מי מכיר את מי" -->
+<div id="whoKnowsScreen" style="display: none">
+  <h2>🧠 מי מכיר את מי</h2>
+  <div id="questionArea"></div>
+  <div id="answerButtons">
+    <button onclick="answerQuestion(1)">שחקן 1 צדק</button>
+    <button onclick="answerQuestion(2)">שחקן 2 צדק</button>
+    <button onclick="nextQuestion()">דלג</button>
+  </div>
+  <div id="whoKnowsScore"></div>
+</div>
+
+<script src="cardsWhoKnows.js" defer></script>
+<script>
+  let whoKnowsQuestions = [];
+  let qIndex = 0;
+  let qScores = [0, 0];
+
+  async function launchWhoKnows() {
+    document.getElementById('landingScreen').style.display = 'none';
+    document.getElementById('startScreen').style.display = 'none';
+    document.getElementById('gameScreen').style.display = 'none';
+    document.getElementById('summaryScreen').style.display = 'none';
+    document.getElementById('whoKnowsScreen').style.display = 'block';
+
+    if (whoKnowsQuestions.length === 0) {
+      const res = await fetch('cardsWhoKnows.js');
+      const text = await res.text();
+      eval(text); // טוען את מערך whoKnowsCards
+      whoKnowsQuestions = shuffle(whoKnowsCards);
+    }
+
+    qIndex = 0;
+    qScores = [0, 0];
+    showWhoKnowsQuestion();
+  }
+
+  function showWhoKnowsQuestion() {
+    document.getElementById('questionArea').innerText = whoKnowsQuestions[qIndex]?.text || '🟡 המשחק הסתיים!';
+    updateWhoKnowsScore();
+  }
+
+  function answerQuestion(player) {
+    if (player === 1 || player === 2) qScores[player - 1]++;
+    nextQuestion();
+  }
+
+  function nextQuestion() {
+    qIndex++;
+    if (qIndex < whoKnowsQuestions.length) showWhoKnowsQuestion();
+    else document.getElementById('questionArea').innerText = '🟡 כל השאלות נענו!';
+  }
+
+  function updateWhoKnowsScore() {
+    document.getElementById('whoKnowsScore').innerText = `שחקן 1: ${qScores[0]} | שחקן 2: ${qScores[1]}`;
+  }
+</script>
 </html>
