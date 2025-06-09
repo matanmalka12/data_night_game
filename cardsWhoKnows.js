@@ -902,5 +902,4 @@ const questionsData = {
     }
    ]
 };
-
-const whoKnowsCards = questionsData.questions;
+window.whoKnowsCards = questionsData.questions;
