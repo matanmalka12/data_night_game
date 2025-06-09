@@ -215,8 +215,19 @@ function copySummaryToClipboard() {
   });
 }
 
+// ✅ חדש – פונקציה שממלאת את רשימת הקלפים
+function fillCardsIndex() {
+  updateCardIndex();
+}
+
+// ✅ עדכון לפונקציית פתיחה/סגירה של חלון הקלפים
 function toggleCardIndex() {
   const panel = $('cardIndexPanel');
+
+  if (panel.style.display !== 'block') {
+    fillCardsIndex(); // ← מציג לפני פתיחה
+  }
+
   panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
 }
 
@@ -231,6 +242,7 @@ function updateCardIndex() {
     container.appendChild(div);
   });
 }
+
 function updateCardsRemaining() {
   const el = $('cardsRemaining');
   if (el) {
@@ -238,6 +250,7 @@ function updateCardsRemaining() {
   }
 }
 
-// הוספה 👇👇👇
+// ✅ ייצוא לפונקציות גלובליות
 window.setMood = setMood;
 window.startGame = startGame;
+window.toggleCardIndex = toggleCardIndex;
