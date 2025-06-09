@@ -92,19 +92,18 @@ function fillCardsIndex() {
   if (!container || questions.length === 0) return;
 
   container.innerHTML = "<b>📋 רשימת השאלות במשחק:</b><br><br>";
-  questions.forEach((q, i) => {
-      console.log(`שאלה ${i + 1}:`, q);  // ← הוסף שורה זו לבדיקה
 
+  questions.forEach((q, i) => {
     const item = document.createElement("div");
     item.className = "card-index-item";
-    item.dataset.text = normalize(q.text);
+    item.dataset.text = normalize(q.text || '');
 
     const span = document.createElement("span");
-    span.textContent = `${i + 1}. ${q.text}`;
+    span.textContent = `${i + 1}. ${q.text || '[ללא טקסט]'}`;
     item.appendChild(span);
+
     container.appendChild(item);
   });
 }
-
 // חובה:
 window.startWhoKnowsGame = startWhoKnowsGame;
