@@ -87,8 +87,9 @@ function updateScoreUI() {
   document.getElementById("scorePlayer2").innerText = whoKnowsScores[1];
 }
 
-function fillCardsIndex() {
+function fillCardsIndexA() {
   const container = document.getElementById("cardIndexList");
+  console.log(container);
   if (!container || questions.length === 0) return;
 
   container.innerHTML = "<b>📋 רשימת השאלות במשחק:</b><br><br>";

@@ -9,10 +9,7 @@
   <link rel="icon" type="image/png" href="icon-192.png">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
+
     #landingScreen {
       background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
       min-height: 100vh;
@@ -98,6 +95,8 @@
       font-size: 2.2em;
       margin-bottom: 10px;
       color: #222;
+      padding: 0;
+      margin: 0;
     }
     #startScreen input,
     #startScreen button,
@@ -122,7 +121,7 @@
 </div>
 
 <!-- כפתור הצגת כל הקלפים -->
-<button id="showIndexBtn" onclick="toggleCardIndex()">📚 הצג את כל הקלפים</button>
+<button id="showIndexBtn" onclick="toggleCardIndexA()">📚 הצג את כל הקלפים</button>
 
 <!-- פאנל אינדקס קלפים -->
 <div id="cardIndexPanel" style="display: none; padding: 20px; background: #fff; max-height: 300px; overflow-y: auto; border: 1px solid #ccc; margin: 20px;">
@@ -207,9 +206,9 @@
 <script src="script-who-knows-turns.js"></script>
 
 <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
-  }
+  // if ('serviceWorker' in navigator) {
+  //   navigator.serviceWorker.register('service-worker.js');
+  // }
 
   function enterGame() {
     document.getElementById('landingScreen').style.display = 'none';
@@ -221,10 +220,10 @@
     document.getElementById('whoKnowsStart').style.display = 'flex';
   }
 
-  function toggleCardIndex() {
+  function toggleCardIndexA() {
     const panel = document.getElementById('cardIndexPanel');
     if (panel.style.display !== 'block') {
-      fillCardsIndex();
+      fillCardsIndexA();
     }
     panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
   }
