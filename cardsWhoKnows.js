@@ -902,5 +902,3 @@ const questionsData = {
     }
   ]
 };
-
-const whoKnowsCards = questionsData.questions;
