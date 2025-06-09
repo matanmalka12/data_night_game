@@ -238,3 +238,4 @@ function updateCardsRemaining() {
     el.innerText = `קלפים נשארו: ${cardsToPlay.length}`;
   }
 }
+window.startGame = startGame;
