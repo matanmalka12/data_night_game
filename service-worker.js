@@ -5,7 +5,9 @@ self.addEventListener('install', function(event) {
         './',
         './index.html',
         './cards.js',
+        './cardsWhoKnows.js', // ✅ הוספנו רק כאן
         './script.js',
+        './script-who-knows-turns.js', // אולי גם את זה
         './style.css'
       ]);
     })
