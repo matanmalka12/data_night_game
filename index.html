@@ -121,12 +121,14 @@
   <button class="menu-btn locked">🔒 אמת, חובה ותשוקה – בקרוב 🍪</button>
 </div>
 
-<!-- אינדקס קלפים -->
-<div id="cardIndexPanel">
-  <h3>📋 אינדקס קלפים</h3>
-  <div id="cardIndexList"></div>
-</div>
+<!-- כפתור הצגת כל הקלפים -->
 <button id="showIndexBtn" onclick="toggleCardIndex()">📚 הצג את כל הקלפים</button>
+
+<!-- פאנל אינדקס קלפים -->
+<div id="cardIndexPanel" style="display: none; padding: 20px; background: #fff; max-height: 300px; overflow-y: auto; border: 1px solid #ccc; margin: 20px;">
+  <h3>📋 אינדקס קלפים</h3>
+  <div id="cardIndexList" style="text-align: right;"></div>
+</div>
 
 <!-- המשחק עצמו (מוסתר בהתחלה) -->
 <div id="startScreen" style="display:none">
