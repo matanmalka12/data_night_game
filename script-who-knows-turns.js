@@ -5,8 +5,8 @@ if (typeof whoKnowsCards === 'undefined') {
 let questions = [];
 let currentTurn = 0;
 let currentIndex = 0;
-var playerNames = [];
-var scores = [0, 0];
+var whoKnowsPlayerNames = [];
+var whoKnowsScores = [0, 0];
 
 function normalize(str) {
   return str.replace(/[^\w\sא-ת]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
@@ -17,9 +17,9 @@ function startWhoKnowsGame() {
   const player2 = document.getElementById("whoKnowsPlayer2").value || "שחקן 2";
   const numQuestions = parseInt(document.getElementById("whoKnowsNumQuestions").value) || 10;
 
-  playerNames = [player1, player2];
+  whoKnowsPlayerNames = [player1, player2];
   questions = shuffle([...whoKnowsCards]).slice(0, numQuestions);
-  scores = [0, 0];
+  whoKnowsScores = [0, 0];
   updateScoreUI();
 
   document.getElementById("whoKnowsStart").style.display = "none";
@@ -32,11 +32,11 @@ function startWhoKnowsGame() {
 function showCurrentQuestion() {
   const q = questions[currentIndex];
   if (!q) {
-    const [score1, score2] = scores;
-    let resultText = `התוצאה: ${playerNames[0]} - ${score1} | ${playerNames[1]} - ${score2}<br><br>`;
+    const [score1, score2] = whoKnowsScores;
+    let resultText = `התוצאה: ${whoKnowsPlayerNames[0]} - ${score1} | ${whoKnowsPlayerNames[1]} - ${score2}<br><br>`;
 
-    if (score1 > score2) resultText += `🏆 המנצח הוא ${playerNames[0]}!`;
-    else if (score2 > score1) resultText += `🏆 המנצח הוא ${playerNames[1]}!`;
+    if (score1 > score2) resultText += `🏆 המנצח הוא ${whoKnowsPlayerNames[0]}!`;
+    else if (score2 > score1) resultText += `🏆 המנצח הוא ${whoKnowsPlayerNames[1]}!`;
     else resultText += `🤝 המשחק הסתיים בתיקו!`;
 
     document.getElementById("whoKnowsTurn").innerText = "🎉 המשחק הסתיים!";
@@ -47,7 +47,7 @@ function showCurrentQuestion() {
     return;
   }
 
-  document.getElementById("whoKnowsTurn").innerText = `תור של ${playerNames[currentTurn]}`;
+  document.getElementById("whoKnowsTurn").innerText = `תור של ${whoKnowsPlayerNames[currentTurn]}`;
   document.getElementById("whoKnowsQuestion").innerText = q.text;
 }
 
@@ -58,7 +58,7 @@ function completeWhoKnows() {
 }
 
 function addPointAndNext() {
-  scores[currentTurn]++;
+  whoKnowsScores[currentTurn]++;
   updateScoreUI();
 
   const currentText = normalize(questions[currentIndex].text);
@@ -91,8 +91,8 @@ function shuffle(arr) {
 }
 
 function updateScoreUI() {
-  document.getElementById("scorePlayer1").innerText = scores[0];
-  document.getElementById("scorePlayer2").innerText = scores[1];
+  document.getElementById("scorePlayer1").innerText = whoKnowsScores[0];
+  document.getElementById("scorePlayer2").innerText = whoKnowsScores[1];
 }
 
 function fillCardsIndex() {
