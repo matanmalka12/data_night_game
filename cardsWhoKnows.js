@@ -900,5 +900,7 @@ const questionsData = {
       "category": "family",
       "used": false
     }
-  ]
+   ]
 };
+
+const whoKnowsCards = questionsData.questions;
