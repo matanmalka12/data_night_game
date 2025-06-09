@@ -67,6 +67,7 @@ function startGame() {
     $('drawBtn').disabled = true;
   }, 800);
 }
+window.startGame = startGame;
 
 function showLoadingAnimation() {
   const btn = $('startGameBtn');
