@@ -231,10 +231,13 @@ function updateCardIndex() {
     container.appendChild(div);
   });
 }
-
 function updateCardsRemaining() {
   const el = $('cardsRemaining');
   if (el) {
     el.innerText = `קלפים נשארו: ${cardsToPlay.length}`;
   }
 }
+
+// הוספה 👇👇👇
+window.setMood = setMood;
+window.startGame = startGame;
