@@ -185,12 +185,12 @@
   <button onclick="startWhoKnowsGame()">🎮 התחל משחק</button>
 </div>
 
-<!-- מסך המשחק עצמו -->
+<!-- מסך המשחק של מי מכיר את מי -->
 <div id="whoKnowsScreen" style="display:none;">
   <h2 id="whoKnowsTurn">תור של ...</h2>
   <div id="whoKnowsScores">
-  <span id="scorePlayer1">0</span> - <span id="scorePlayer2">0</span>
-</div>
+    <span id="scorePlayer1">0</span> - <span id="scorePlayer2">0</span>
+  </div>
   <div id="whoKnowsQuestion"></div>
   <div id="whoKnowsActions">
     <button onclick="addPointAndNext()">✅ עניתי נכון</button>
@@ -198,10 +198,11 @@
   </div>
 </div>
 
-<script src="cards.js" defer></script>
-<script src="script.js" defer></script>
-<script src="cardsWhoKnows.js" defer></script>
-<script src="script-who-knows-turns.js" defer></script>
+<!-- סקריפטים -->
+<script src="cards.js"></script>
+<script src="script.js"></script>
+<script src="cardsWhoKnows.js"></script>
+<script src="script-who-knows-turns.js"></script>
 
 <script>
   if ('serviceWorker' in navigator) {
@@ -220,9 +221,12 @@
 
   function toggleCardIndex() {
     const panel = document.getElementById('cardIndexPanel');
+    if (panel.style.display !== 'block') {
+      fillCardsIndex();
+    }
     panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
   }
-  
+
   function updateCardIndex() {
     const container = document.getElementById('cardIndexList');
     container.innerHTML = '';
@@ -234,17 +238,6 @@
       container.appendChild(div);
     });
   }
-  function toggleCardIndex() {
-  const panel = document.getElementById('cardIndexPanel');
-  
-  // נוסיף כאן את מילוי הקלפים לפני פתיחה
-  if (panel.style.display !== 'block') {
-    fillCardsIndex(); // ← זו השורה החשובה
-  }
-
-  panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
-}
-  
 </script>
 
 </body>
