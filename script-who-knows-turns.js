@@ -93,6 +93,8 @@ function fillCardsIndex() {
 
   container.innerHTML = "<b>📋 רשימת השאלות במשחק:</b><br><br>";
   questions.forEach((q, i) => {
+      console.log(`שאלה ${i + 1}:`, q);  // ← הוסף שורה זו לבדיקה
+
     const item = document.createElement("div");
     item.className = "card-index-item";
     item.dataset.text = normalize(q.text);
