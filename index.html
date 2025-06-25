@@ -111,14 +111,14 @@
 <body>
 
 <!-- דף נחיתה -->
-<div id="landingScreen">
+<main id="landingScreen" role="main">
   <h1>דייט לא שגרתי 🎉</h1>
   <p>ערב של קלפים, שיחה, גירוי וצחוק שלא יישאר אתכם אדישים.<br>בחרו את מצב הרוח שלכם – והמשחק מתחיל! 🔥</p>
   <button class="menu-btn" onclick="enterGame()">🎙 נכנסים להריון – משחק פתוח</button>
   <button class="menu-btn" onclick="launchWhoKnows()">🧠 מי מכיר את מי</button>
   <button class="menu-btn locked">🔒 קלפי שתייה לוהטים – בקרוב 🍸</button>
   <button class="menu-btn locked">🔒 אמת, חובה ותשוקה – בקרוב 🍪</button>
-</div>
+</main>
 
 <!-- כפתור הצגת כל הקלפים -->
 <button id="showIndexBtn" onclick="toggleCardIndexA()">📚 הצג את כל הקלפים</button>
@@ -130,14 +130,10 @@
 </div>
 
 <!-- המשחק עצמו (מוסתר בהתחלה) -->
-<div id="startScreen" style="display:none">
+<main id="startScreen" role="main" style="display:none">
   <h1>🎲 דייט לא שגרתי</h1>
-  <label>שם שחקן 1:
-    <input id="player1Name" type="text" placeholder="מתן">
-  </label><br>
-  <label>שם שחקן 2:
-    <input id="player2Name" type="text" placeholder="אור">
-  </label><br>
+  <label for="player1Name">שם שחקן 1:</label><input id="player1Name" type="text" placeholder="מתן"><br>
+  <label for="player2Name">שם שחקן 2:</label><input id="player2Name" type="text" placeholder="אור"><br>
   <label>מצב רוח:</label>
   <div id="moodButtons">
     <button class="mood-btn selected" data-mood="mixed" onclick="setMood('mixed',this)">🎭 משולב</button>
@@ -149,9 +145,9 @@
     <input id="numCards" type="number" value="10" min="1" max="160">
   </label><br><br>
   <button id="startGameBtn" onclick="startGame()">🎮 התחל משחק</button>
-</div>
+</main>
 
-<div id="gameScreen" style="display:none;">
+<main id="gameScreen" role="main" style="display:none;">
   <div id="turnDisplay"></div>
   <div id="scoreBoard"></div>
   <div id="cardArea"></div>
@@ -162,7 +158,7 @@
     <button id="skipBtn" onclick="skipCard()">⏭ דלג</button>
     <button id="completeBtn" onclick="completeTask()" style="display:none;">✔️ השלמתי</button>
   </div>
-</div>
+</main>
 
 <div id="summaryScreen" style="display:none;">
   <h2>🏁 המשחק הסתיים!</h2>
@@ -172,22 +168,18 @@
 </div>
 
 <!-- מסך פתיחה של מי מכיר את מי -->
-<div id="whoKnowsStart" style="display:none;">
+<main id="whoKnowsStart" role="main" style="display:none;">
   <h2>🧠 מי מכיר את מי</h2>
-  <label>שם שחקן 1:
-    <input id="whoKnowsPlayer1" type="text" placeholder="שחקן 1">
-  </label><br>
-  <label>שם שחקן 2:
-    <input id="whoKnowsPlayer2" type="text" placeholder="שחקן 2">
-  </label><br>
+ <label for="whoKnowsPlayer1">שם שחקן 1:</label><input id="whoKnowsPlayer1" type="text" placeholder="שחקן 1"><br>
+ <label for="whoKnowsPlayer2">שם שחקן 2:</label><input id="whoKnowsPlayer2" type="text" placeholder="שחקן 2"><br>
   <label>כמות שאלות:
     <input id="whoKnowsNumQuestions" type="number" min="1" max="150" value="10">
   </label><br><br>
   <button onclick="startWhoKnowsGame()">🎮 התחל משחק</button>
-</div>
+</main>
 
 <!-- מסך המשחק של מי מכיר את מי -->
-<div id="whoKnowsScreen" style="display:none;">
+<section id="whoKnowsScreen" role="application" style="display:none;">
   <h2 id="whoKnowsTurn">תור של ...</h2>
   <div id="whoKnowsScores">
     <span id="scorePlayer1">0</span> - <span id="scorePlayer2">0</span>
@@ -197,7 +189,7 @@
     <button onclick="addPointAndNext()">✅ עניתי נכון</button>
     <button onclick="skipWhoKnows()">⏭ דלג</button>
   </div>
-</div>
+</section>
 
 <!-- סקריפטים -->
 <script src="cards.js" defer></script>
