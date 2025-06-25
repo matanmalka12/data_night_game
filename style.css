@@ -1,407 +1,117 @@
-:root {
-  /* Colors */
-  --primary-gradient-start: #ff9a9e; /* Pink-red for landing/start screens */
-  --primary-gradient-end: #fad0c4;   /* Light orange for landing/start screens */
-  --secondary-gradient-start: #fad0c4; /* Start of Who Knows gradient */
-  --secondary-gradient-end: #ffd1ff; /* End of Who Knows gradient */
-  --light-background: #f5f5ff;      /* General light background */
-  --dark-text: #000;               /* Primary dark text */
-  --light-text: white;             /* Primary light text (on dark backgrounds) */
-  --accent-color: #2b0b0e;         /* Card index panel background */
-  --gold-accent: gold;             /* Gold text for titles */
-  --gray-border: #888;             /* General border color for inputs/buttons */
-  --light-gray-border: #ccc;       /* Lighter border for score board */
-  --dark-gray-text: #333;          /* Darker gray text */
-  --medium-gray-text: #666;        /* Medium gray text */
-  --light-gray-text: #999;         /* Light gray text (for played cards) */
-  --button-hover-filter: brightness(1.08); /* Hover effect for buttons */
-  --box-shadow-light: 0 2px 6px rgba(0,0,0,0.1); /* Light shadow */
-  --box-shadow-medium: 0 4px 12px rgba(0,0,0,0.1); /* Medium shadow */
-  --box-shadow-dark: -2px 0 5px rgba(0,0,0,0.3); /* Dark shadow for panel */
-  --card-border-dashed: 3px dashed #aaa; /* Dashed border for main card */
-  --who-knows-border-dashed: 2px dashed #888; /* Dashed border for Who Knows card */
-  --who-knows-turn-color: #4a148c; /* Color for Who Knows turn text */
-  --who-knows-turn-background: #f3e5f5; /* Background for Who Knows turn */
-  --who-knows-turn-border: #ce93d8; /* Border for Who Knows turn */
-  --button-success-bg: #4caf50;    /* Background for success button */
-  --button-success-hover-bg: #45a049; /* Hover background for success button */
-  --background-white: #ffffff;    /* Specific variable for white background */
-
-
-  /* Spacing & Sizes */
-  --spacing-xs: 5px;
-  --spacing-sm: 8px;
-  --spacing-md: 10px;
-  --spacing-lg: 12px;
-  --spacing-xl: 20px;
-  --padding-button-default: 12px 24px; /* Renamed to distinguish from padding-input-btn if needed */
-  --padding-input-btn: 10px 16px; /* Keeping this as it's defined in index.html inline style */
-  --padding-card: 20px;
-  --spacing-mobile-btn-margin: 6px;
-  --spacing-score-margin-bottom: 6px;
-  --spacing-cards-remaining-margin-top: 4px;
-  --spacing-who-knows-score-margin: 16px;
-  --spacing-question-area-padding: 20px; /* Assuming this is a common padding */
-  --spacing-who-knows-action-gap: 20px;
-  --spacing-answer-buttons-gap: 16px;
-  --spacing-card-index-margin: 6px;
-  --spacing-card-index-padding: 6px 10px;
-  --spacing-mobile-button-padding: 14px 28px;
-  --spacing-40px: 40px; /* For padding in start screens */
-
-  /* Font Sizes */
-  --font-size-sm: 14px;
-  --font-size-md: 16px;
-  --font-size-lg: 18px;
-  --font-size-xl: 20px;
-  --font-size-xxl: 22px;
-  --font-size-h1-landing: 2.4em;
-  --font-size-h1-start: 2.2em;
-  --font-size-card: 24px;
-  --font-size-who-knows: 22px;
-  --font-size-card-index-item: 15px;
-
-  /* Border Radii */
-  --border-radius-sm: 8px;
-  --border-radius-md: 10px;
-  --border-radius-lg: 12px;
-  --border-radius-xl: 16px;
-  --border-radius-custom-6px: 6px; /* For card-index-item */
-
-
-  /* Mood Button Colors */
-  --mood-romantic-bg: #ffc8dd;
-  --mood-fun-bg: #fff4a3;
-  --mood-all-bg: #d7bdf5; /* Added this based on original code, though not explicitly used in your current index.html's mood buttons */
-  --mood-sexual-bg: #ff9aa2;
-  --mood-selected-outline: 3px solid #222;
-  --mood-selected-scale: 1.05;
-
-  /* Card Level Colors */
-  --card-lvl-1-bg: #f8f9fa;
-  --card-lvl-1-border: #adb5bd;
-  --card-lvl-1-color: #343a40;
-
-  --card-lvl-2-bg: #e0f7fa;
-  --card-lvl-2-border: #00acc1;
-  --card-lvl-2-color: #004d40;
-
-  --card-lvl-3-bg: #e3f2fd;
-  --card-lvl-3-border: #42a5f5;
-  --card-lvl-3-color: #0d47a1;
-
-  --card-lvl-4-bg: #fff3e0;
-  --card-lvl-4-border: #fb8c00;
-  --card-lvl-4-color: #e65100;
-
-  --card-lvl-5-bg: #ffebee;
-  --card-lvl-5-border: #e53935;
-  --card-lvl-5-color: #b71c1c;
-}
-
-body {
-  font-family: 'Alef', Arial, sans-serif;
-  text-align: center;
-  direction: rtl;
-  background: var(--light-background);
-  margin: 0;
-  padding: 0;
-}
-
-input, button {
-  margin: var(--spacing-sm);
-  padding: var(--padding-button-default);
-  font-size: var(--font-size-md);
-  border-radius: var(--border-radius-sm);
-  border: 1px solid var(--gray-border);
-}
-
-button:hover {
-  cursor: pointer;
-  filter: var(--button-hover-filter);
-  transition: .2s;
-}
-
-/* כפתורי מצב-רוח */
-#moodButtons button {
-  border: none;
-  color: var(--dark-text);
-  font-size: var(--font-size-lg);
-  padding: var(--spacing-md) var(--spacing-xl);
-  border-radius: var(--border-radius-lg);
-  margin: var(--spacing-xs);
-  box-shadow: var(--box-shadow-light);
-}
-button[data-mood="romantic"] { background: var(--mood-romantic-bg); }
-button[data-mood="fun"]      { background: var(--mood-fun-bg); }
-button[data-mood="all"]      { background: var(--mood-all-bg); }
-button[data-mood="sexual"]   { background: var(--mood-sexual-bg); }
-#moodButtons button.selected {
-  outline: var(--mood-selected-outline);
-  transform: scale(var(--mood-selected-scale));
-}
-
-/* תצוגה כללית */
-#turnDisplay {
-  font-size: var(--font-size-xl);
-  margin: var(--spacing-lg) 0;
-}
-#turnDisplay b {
-  background: linear-gradient(to right, #dff9fb, #c7ecee); /* Specific gradient, kept as is */
-  padding: 4px var(--spacing-md);
-  border-radius: var(--border-radius-sm);
-  border: 1px solid #aaa; /* Specific border, kept as is */
-  box-shadow: var(--box-shadow-light);
-}
-#scoreBoard {
-  font-size: var(--font-size-lg);
-  font-weight: bold;
-  margin-bottom: var(--spacing-score-margin-bottom);
-  background: var(--background-white);
-  display: inline-block;
-  padding: var(--spacing-sm) 16px; /* 16px could be a variable if repeated */
-  border-radius: var(--border-radius-md);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.15); /* Specific shadow, kept as is */
-  border: 1px solid var(--light-gray-border);
-}
-
-/* קלף */
-#cardArea {
-  margin: var(--spacing-xl) auto;
-  width: 70%;
-  min-height: 80px;
-  padding: var(--padding-card);
-  border: var(--card-border-dashed);
-  border-radius: var(--border-radius-xl);
-  background: linear-gradient(135deg, var(--background-white), var(--card-lvl-1-bg));
-  font-size: var(--font-size-card);
-  font-weight: 500;
-  color: var(--dark-text);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  white-space: normal;
-  word-break: break-word;
-  box-shadow: var(--box-shadow-medium);
-  transition: all 0.3s ease;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-/* רמות קלפים */
-.card-lvl-1 {
-  background-color: var(--card-lvl-1-bg);
-  border-color: var(--card-lvl-1-border);
-  color: var(--card-lvl-1-color);
-}
-.card-lvl-2 {
-  background-color: var(--card-lvl-2-bg);
-  border-color: var(--card-lvl-2-border);
-  color: var(--card-lvl-2-color);
-}
-.card-lvl-3 {
-  background-color: var(--card-lvl-3-bg);
-  border-color: var(--card-lvl-3-border);
-  color: var(--card-lvl-3-color);
-}
-.card-lvl-4 {
-  background-color: var(--card-lvl-4-bg);
-  border-color: var(--card-lvl-4-border);
-  color: var(--card-lvl-4-color);
-}
-.card-lvl-5 {
-  background-color: var(--card-lvl-5-bg);
-  border-color: var(--card-lvl-5-border);
-  color: var(--card-lvl-5-color);
-}
-
-/* אנימציה */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
-/* מובייל */
-@media (max-width: 480px) {
-  #cardArea { font-size: var(--font-size-lg); width: 90%; }
-  #actions button {
-    display: block;
-    width: 90%;
-    margin: var(--spacing-mobile-btn-margin) auto;
-  }
-  #cardsRemaining {
-    font-size: var(--font-size-md);
-    margin-bottom: var(--spacing-md); /* Used spacing-md for 10px */
-  }
-
-  #drawBtn, #skipBtn, #completeBtn {
-    font-size: var(--font-size-lg);
-    padding: var(--spacing-mobile-button-padding);
-  }
-}
-
-.card-text {
-  margin-bottom: var(--spacing-md); /* Used spacing-md for 10px */
-  font-size: var(--font-size-xxl);
-  line-height: 1.5;
-}
-
-.card-level-icon {
-  font-size: var(--font-size-md);
-  color: #555; /* Specific color, kept as is */
-}
-
-/* סופר קלפים */
-#cardsRemaining {
-  font-size: var(--font-size-sm);
-  color: var(--medium-gray-text);
-  margin-top: var(--spacing-cards-remaining-margin-top);
-  display: block;
-}
-
-#skipBtn {
-  margin-right: var(--spacing-md);
-}
-
-/* עיצוב מסך "מי מכיר את מי" */
-#whoKnowsScreen {
-  background: linear-gradient(to bottom, var(--secondary-gradient-start), var(--secondary-gradient-end));
+/* כללים מדף הנחיתה וההתחלה שהועברו מ-index.html */
+#landingScreen {
+  background: linear-gradient(to bottom, var(--primary-gradient-start), var(--primary-gradient-end));
   min-height: 100vh;
-  padding: var(--spacing-40px) var(--spacing-xl);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  color: var(--dark-gray-text);
-}
-
-#questionArea {
-  margin: var(--spacing-xl) auto;
-  width: 80%;
-  min-height: 100px;
-  padding: var(--spacing-question-area-padding);
-  border: var(--who-knows-border-dashed);
-  border-radius: var(--border-radius-xl);
-  background: var(--background-white);
-  font-size: var(--font-size-who-knows);
-  font-weight: 500;
-  color: #111; /* Specific color, kept as is */
-  display: flex;
-  align-items: center;
   justify-content: center;
   text-align: center;
-  white-space: normal;
-  word-break: break-word;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Specific shadow, kept as is */
-  transition: all 0.3s ease;
-  animation: fadeIn 0.4s ease-in-out;
-}
-
-#answerButtons button {
-  margin: var(--spacing-md);
-  padding: var(--padding-input-btn); /* Updated to use padding-input-btn */
-  font-size: var(--font-size-lg);
-  border-radius: var(--border-radius-md);
-  border: 1px solid var(--gray-border);
-  background: var(--card-lvl-2-bg); /* Using card-lvl-2-bg as it's the same color */
-  color: var(--dark-text);
-  font-weight: bold;
-  cursor: pointer;
-}
-
-#answerButtons button:hover {
-  background: #b2ebf2; /* Specific color, kept as is */
-}
-
-#whoKnowsScore {
-  font-size: var(--font-size-lg);
-  margin: var(--spacing-who-knows-score-margin) 0;
-  font-weight: bold;
-}
-/* כותרת תור במשחק "מי מכיר את מי" */
-#whoKnowsTurn {
-  font-size: var(--font-size-xxl);
-  font-weight: bold;
-  color: var(--who-knows-turn-color);
-  background: var(--who-knows-turn-background);
-  padding: var(--spacing-md) var(--spacing-xl);
-  border-radius: var(--border-radius-lg);
-  border: 1px solid var(--who-knows-turn-border);
-  box-shadow: var(--box-shadow-light);
-  margin-bottom: var(--spacing-xl);
-}
-
-/* אזור הפעולות של "מי מכיר את מי" */
-#whoKnowsActions {
-  display: flex;
-  gap: var(--spacing-who-knows-action-gap);
-  margin-top: var(--spacing-xl);
-}
-
-#whoKnowsActions button {
-  padding: var(--padding-button-default); /* Updated to use padding-button-default */
-  font-size: var(--font-size-lg);
-  margin: var(--spacing-md);
-  border: none;
-  border-radius: var(--border-radius-md);
-  background-color: var(--button-success-bg);
   color: var(--light-text);
+}
+#landingScreen h1 {
+  font-size: var(--font-size-h1-landing);
+  margin-bottom: var(--spacing-md); /* 10px */
+}
+#landingScreen p {
+  margin-bottom: 30px; /* Specific value, can be a variable if repeated */
+}
+.menu-btn {
+  background: var(--background-white);
+  color: var(--dark-text);
+  border: none;
+  padding: var(--padding-button); /* 15px 30px */
+  margin: var(--spacing-md) 0; /* 10px 0 */
+  font-size: 1em; /* Kept as em for responsiveness relative to parent */
+  border-radius: var(--border-radius-lg); /* 12px */
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.2s ease;
+}
+.menu-btn.locked {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
-#whoKnowsActions button:hover {
-  background-color: var(--button-success-hover-bg);
+/* כללי פאנל אינדקס הקלפים שהועברו מ-index.html */
+#cardIndexPanel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px; /* Specific value, can be a variable */
+  height: 100%;
+  background: var(--accent-color); /* #2b0b0e */
+  color: var(--light-text);
+  overflow-y: auto;
+  padding: var(--spacing-md); /* 10px */
+  box-shadow: var(--box-shadow-dark); /* -2px 0 5px rgba(0,0,0,0.3) */
+  /* display: none; - נשאר inline ב-HTML כי נשלט ע"י JS */
+  z-index: 999; /* Specific value, can be a variable if repeated */
+}
+#cardIndexPanel h3 {
+  margin-top: 0;
+  color: var(--gold-accent); /* gold */
+}
+/* .card-index-item כבר קיים ב-style.css, נשלב את הכללים */
+/*
+.card-index-item {
+  margin: var(--spacing-xs) 0;
+  padding: var(--spacing-xs);
+  border-bottom: 1px solid #444; /* Specific color, can be a variable if repeated */
+  font-size: var(--font-size-sm); /* 14px */
+}
+*/
+/* .card-played כבר קיים ב-style.css, נשלב את הכללים */
+/*
+.card-played {
+  text-decoration: line-through;
+  color: var(--light-gray-text); /* #999 */
+}
+*/
+#showIndexBtn {
+  position: fixed;
+  top: var(--spacing-md); /* 10px */
+  left: var(--spacing-md); /* 10px */
+  z-index: 1000; /* Specific value, can be a variable if repeated */
+  padding: var(--spacing-sm) 16px; /* 8px 16px - 16px could be a variable if repeated */
+  background: var(--background-white);
+  border-radius: var(--border-radius-lg); /* 12px */
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-/* עיצוב למ מסך הפתיחה של המשחק */
-#whoKnowsStart {
-  background: linear-gradient(to bottom, #fce4ec, var(--who-knows-turn-background));
+/* כללי מסך ההתחלה שהועברו מ-index.html */
+#startScreen {
+  background: linear-gradient(to bottom, var(--primary-gradient-start), var(--primary-gradient-end));
   min-height: 100vh;
-  padding: var(--spacing-40px) var(--spacing-xl);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--dark-gray-text);
+  text-align: center;
 }
-
-#whoKnowsScores {
-  font-size: var(--font-size-xl);
-  margin-bottom: var(--spacing-who-knows-score-margin);
-  font-weight: bold;
-  color: #444; /* Specific color, kept as is */
+#startScreen h1 {
+  font-size: var(--font-size-h1-start); /* 2.2em */
+  margin-bottom: var(--spacing-md); /* 10px */
+  color: #222; /* Specific color, kept as is */
+  padding: 0;
+  margin: 0;
 }
-
-#whoKnowsQuestion {
-  font-size: var(--font-size-who-knows);
-  background-color: var(--background-white);
-  padding: var(--spacing-question-area-padding);
-  border-radius: var(--border-radius-lg);
-  border: 2px solid var(--light-gray-border);
-  margin-bottom: var(--spacing-xl);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Specific shadow, kept as is */
+/* #startScreen input, #startScreen button, #moodButtons button - הכללים האלו כבר קיימים באופן גלובלי או תחת #moodButtons */
+/* נסיר את ההגדרות הכפולות מה-style.css כי הן כבר קיימות גלובלית ב-input, button או ספציפית ב-moodButtons button */
+/*
+  שימו לב: הכלל הבא בקובץ המקורי שלך ב-index.html היה ספציפי יותר (#startScreen input, #startScreen button, #moodButtons button)
+  מאשר הכלל הגלובלי input, button.
+  היות וכבר העברנו את הכללים הגלובליים ל-style.css עם משתנים, יש לוודא שה-padding הספציפי ל-startScreen עדיין עובד.
+  הגדרתי ב-`:root` את `--padding-input-btn: 10px 16px;` כדי לתת מענה לזה.
+  אז נוודא ש-`input, button` ב-`style.css` משתמש ב-`--padding-button-default` (שהוא 12px 24px),
+  ונגדיר כלל ספציפי ל-`#startScreen input, #startScreen button, #moodButtons button` שישתמש ב-`--padding-input-btn`.
+*/
+#startScreen input,
+#startScreen button {
+  margin: var(--spacing-sm); /* 8px */
+  padding: var(--padding-input-btn); /* 10px 16px */
+  font-size: 1em; /* Kept as em for responsiveness */
+  border-radius: var(--border-radius-sm); /* 8px */
 }
-
-#answerButtons {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing-answer-buttons-gap);
-  margin-top: var(--spacing-xl);
-}
-
-.card-index-item {
-  margin: var(--spacing-card-index-margin) 0;
-  padding: var(--spacing-card-index-padding);
-  border-bottom: 1px dashed var(--medium-gray-text);
-  font-size: var(--font-size-card-index-item);
-  line-height: 1.4;
-  border-radius: var(--border-radius-custom-6px);
-  background: rgba(255, 255, 255, 0.05); /* Specific RGBA, kept as is */
-}
-
-.card-index-item.card-played {
-  text-decoration: line-through !important;
-  color: var(--light-gray-text) !important;
-}
+/* #moodButtons button כבר מוגדר למעלה ב-style.css, לכן אין צורך לחזור עליו כאן */
